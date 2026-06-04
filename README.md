@@ -10,18 +10,18 @@ The labs progress from fuzzy systems and unsupervised clustering through hand-bu
 
 | Lab | Topic | Key implementation |
 | --- | --- | --- |
-| [`1-lab`](1-lab) | Fuzzy control system | Mamdani-style fuzzy controller over a target function using `skfuzzy.control` (antecedents, consequents, rule generation, simulation) |
-| [`2-lab`](2-lab) | Fuzzy membership functions | Plots and fuzzy AND/OR operators across `skfuzzy` membership functions (`trimf`, `trapmf`, `gaussmf`, `gbellmf`, `sigmf`, `pimf`, etc.) |
-| [`3-lab`](3-lab) | Fuzzy clustering | Fuzzy c-means clustering (`skfuzzy.cmeans`) on a 2D dataset with objective-function convergence plot |
-| [`4-lab`](4-lab) | Backpropagation networks | Feed-forward, cascade-forward, and Elman recurrent networks built with `neurolab`, `theano`, and `lasagne` to approximate a function |
-| [`5-lab`](5-lab) | Hebbian learning | Hebb-rule network that trains on and identifies BMP letter images |
-| [`6-lab`](6-lab) | ANFIS | Adaptive neuro-fuzzy inference system (TensorFlow/Keras) regressing concrete compressive strength from the [`Concrete_Data.xls`](6-lab/Concrete_Data.xls) dataset |
-| [`7-lab`](7-lab) | Evolutionary optimization | Genetic-algorithm function minimization (1D and 2D) using the `evol` library with custom selection, crossover, and mutation |
-| [`8-lab`](8-lab) | Genetic packing | Chromosome-based optimization placing rectangular shapes within a bounded area, visualized with Matplotlib patches |
-| [`9-lab`](9-lab) | MNIST classification | Keras dense network for handwritten-digit recognition, predicting on custom BMP examples via OpenCV |
-| [`10-lab`](10-lab) | AlexNet (CIFAR-10) | AlexNet-style convolutional network in Keras with image standardization/resizing and `tf.data` pipelines |
-| [`11-lab`](11-lab) | GoogLeNet (CIFAR-10) | Inception/GoogLeNet architecture with convolution, inception, and downsample modules and data augmentation |
-| [`12-lab`](12-lab) | Bidirectional LSTM sentiment | Text sentiment classifier on the `imdb_reviews` dataset using `TextVectorization`, embeddings, and a bidirectional LSTM |
+| [`1-lab`](1-lab/1-lab.py) | Fuzzy control system | Mamdani-style fuzzy controller over a target function using `skfuzzy.control` (antecedents, consequents, rule generation, simulation) |
+| [`2-lab`](2-lab/2-lab.py) | Fuzzy membership functions | Plots and fuzzy AND/OR operators across `skfuzzy` membership functions (`trimf`, `trapmf`, `gaussmf`, `gbellmf`, `sigmf`, `pimf`, etc.) |
+| [`3-lab`](3-lab/3-lab.py) | Fuzzy clustering | Fuzzy c-means clustering (`skfuzzy.cmeans`) on a 2D dataset with objective-function convergence plot |
+| [`4-lab`](4-lab/4-lab.py) | Backpropagation networks | Feed-forward, cascade-forward, and Elman recurrent networks built with `neurolab`, `theano`, and `lasagne` to approximate a function |
+| [`5-lab`](5-lab/5-lab.py) | Hebbian learning | Hebb-rule network that trains on and identifies BMP letter images |
+| [`6-lab`](6-lab/6-lab.py) | ANFIS | Adaptive neuro-fuzzy inference system (TensorFlow/Keras) regressing concrete compressive strength from the [`Concrete_Data.xls`](6-lab/Concrete_Data.xls) dataset |
+| [`7-lab`](7-lab/7-lab.py) | Evolutionary optimization | Genetic-algorithm function minimization (1D and 2D) using the `evol` library with custom selection, crossover, and mutation |
+| [`8-lab`](8-lab/8-lab.py) | Genetic packing | Chromosome-based optimization placing rectangular shapes within a bounded area, visualized with Matplotlib patches |
+| [`9-lab`](9-lab/9-lab.py) | MNIST classification | Keras dense network for handwritten-digit recognition, predicting on custom BMP examples via OpenCV |
+| [`10-lab`](10-lab/10-lab.py) | AlexNet (CIFAR-10) | AlexNet-style convolutional network in Keras with image standardization/resizing and `tf.data` pipelines |
+| [`11-lab`](11-lab/11-lab.py) | GoogLeNet (CIFAR-10) | Inception/GoogLeNet architecture with convolution, inception, and downsample modules and data augmentation |
+| [`12-lab`](12-lab/12-lab.py) | Bidirectional LSTM sentiment | Text sentiment classifier on the `imdb_reviews` dataset using `TextVectorization`, embeddings, and a bidirectional LSTM |
 
 Notebook versions are provided for labs 10, 11, and 12 (`*.ipynb` alongside the scripts).
 
