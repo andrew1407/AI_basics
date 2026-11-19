@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-badge="1">
+  <!-- A small neural network (3 inputs, 4 hidden neurons, 2 outputs) in the showcase's peach colours, on a round outlined badge -->
+  <circle cx="32" cy="32" r="30" fill="#ffffff" stroke="#ec7a4f" stroke-width="4"/>
+  <svg x="9.6" y="9.6" width="44.8" height="44.8" viewBox="2.7 2.7 58.6 58.6">
+    <path d="M10 18L32 9M10 18L32 24.33M10 18L32 39.67M10 18L32 55M10 32L32 9M10 32L32 24.33M10 32L32 39.67M10 32L32 55M10 46L32 9M10 46L32 24.33M10 46L32 39.67M10 46L32 55M32 9L54 24M32 9L54 40M32 24.33L54 24M32 24.33L54 40M32 39.67L54 24M32 39.67L54 40M32 55L54 24M32 55L54 40" fill="none" stroke="#ec7a4f" stroke-width="2.6" stroke-linecap="round"/>
+    <g><circle cx="10" cy="18" r="5" fill="#ffe7da" stroke="#f4a27e" stroke-width="2.6"/><circle cx="10" cy="32" r="5" fill="#ffe7da" stroke="#f4a27e" stroke-width="2.6"/><circle cx="10" cy="46" r="5" fill="#ffe7da" stroke="#f4a27e" stroke-width="2.6"/></g>
+    <g><circle cx="32" cy="9" r="5" fill="#fbf1cc" stroke="#b8971b" stroke-width="2.6"/><circle cx="32" cy="24.33" r="5" fill="#fbf1cc" stroke="#b8971b" stroke-width="2.6"/><circle cx="32" cy="39.67" r="5" fill="#fbf1cc" stroke="#b8971b" stroke-width="2.6"/><circle cx="32" cy="55" r="5" fill="#fbf1cc" stroke="#b8971b" stroke-width="2.6"/></g>
+    <g><circle cx="54" cy="24" r="5" fill="#ffe7da" stroke="#9c4421" stroke-width="2.6"/><circle cx="54" cy="40" r="5" fill="#ffe7da" stroke="#9c4421" stroke-width="2.6"/></g>
+  </svg>
+</svg>

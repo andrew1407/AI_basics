@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# GitHub Pages build (web/build_wheels.sh, the assembled site)
+web/wheels/
+_site/

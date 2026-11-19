@@ -1,0 +1,26 @@
+# Pyodide runtime for worker.js: packages loaded at start, then [files] fetched (relative to web/) into the worker's file system.
+# Each lab's other packages and data files are fetched by bridge.py the first time the lab runs.
+packages = ["numpy", "micropip"]
+
+[files]
+"../1-lab/1-lab.py" = "./labs/1-lab/1-lab.py"
+"../1-lab/control_system.py" = "./labs/1-lab/control_system.py"
+"../1-lab/simulator.py" = "./labs/1-lab/simulator.py"
+"../1-lab/tables.py" = "./labs/1-lab/tables.py"
+"../1-lab/terms.py" = "./labs/1-lab/terms.py"
+"../10-lab/10-lab.py" = "./labs/10-lab/10-lab.py"
+"../11-lab/11-lab.py" = "./labs/11-lab/11-lab.py"
+"../2-lab/2-lab.py" = "./labs/2-lab/2-lab.py"
+"../3-lab/3-lab.py" = "./labs/3-lab/3-lab.py"
+"../4-lab/4-lab.py" = "./labs/4-lab/4-lab.py"
+"../4-lab/backprops.py" = "./labs/4-lab/backprops.py"
+"../5-lab/5-lab.py" = "./labs/5-lab/5-lab.py"
+"../5-lab/hebb.py" = "./labs/5-lab/hebb.py"
+"../6-lab/6-lab.py" = "./labs/6-lab/6-lab.py"
+"../7-lab/7-lab.py" = "./labs/7-lab/7-lab.py"
+"../8-lab/8-lab.py" = "./labs/8-lab/8-lab.py"
+"./ports/anfis_np.py" = "./ports/anfis_np.py"
+"./ports/backprops_np.py" = "./ports/backprops_np.py"
+"./ports/keras_shapes.py" = "./ports/keras_shapes.py"
+"./ports/sentiment_np.py" = "./ports/sentiment_np.py"
+"./showcase.py" = "./showcase.py"

@@ -1,0 +1,54 @@
+name: Deploy showcase to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # neurolab (4-lab) has no wheel on PyPI; build a pure-Python one for Pyodide into web/wheels/
+      - name: Build the neurolab wheel
+        run: sh web/build_wheels.sh
+
+      # Mirror the repo layout so web/worker.js can load ../<lab>/*.py (listed in web/pyodide.toml) and the lab data
+      - name: Assemble site
+        run: |
+          mkdir -p _site/web/models _site/exam-task/model
+          cp web/*.html web/*.js web/*.py web/*.toml web/*.svg _site/web/
+          cp -r web/ports web/wheels _site/web/
+          cp web/models/*.npz _site/web/models/
+          cp -r 1-lab 2-lab 3-lab 4-lab 5-lab 6-lab 7-lab 8-lab 9-lab 10-lab 11-lab 12-lab _site/
+          cp -r exam-task/app _site/exam-task/
+          cp exam-task/model/word_index.json _site/exam-task/model/
+          find _site -name '__pycache__' -prune -exec rm -rf {} +
+          find _site -name '*.ipynb' -delete
+          echo '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=./web/"><title>AI Basics Labs</title><link rel="icon" href="./web/icon.svg"><a href="./web/">Open the showcase</a>' > _site/index.html
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
