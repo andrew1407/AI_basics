@@ -1,5 +1,13 @@
 # AI_basics
 
+<p align="center">
+  <a href="https://andrew1407.github.io/AI_basics/" title="Open the labs in the browser">
+    <img src="web/icon.svg" alt="AI Basics Labs" width="140" height="140">
+  </a>
+</p>
+
+[![pages deploy badge](https://github.com/andrew1407/AI_basics/actions/workflows/pages.yml/badge.svg)](https://andrew1407.github.io/AI_basics/)
+
 A collection of artificial intelligence laboratory works covering fuzzy logic, classic neural networks, evolutionary computation, and deep learning, plus a final exam project that wraps a custom LSTM sentiment model in a desktop GUI. Each lab is provided as a runnable Python script, with several labs also available as Jupyter notebooks.
 
 ## Overview
@@ -32,7 +40,24 @@ Notebook versions are provided for labs 10, 11, and 12 (`*.ipynb` alongside the 
 - [`app/sentiment_analyzer/`](exam-task/app/sentiment_analyzer) — a [`SentimentAnalyzer`](exam-task/app/sentiment_analyzer/analyzer.py) facade and a custom [`ELSTMCell`](exam-task/app/sentiment_analyzer/elstm.py) Keras layer (an extended LSTM cell), loading a saved model to classify text as positive or negative.
 - [`app/gui/`](exam-task/app/gui) — a Tkinter [`WindowClient`](exam-task/app/gui/window_client.py) providing text input and prediction output.
 - [`app/main.py`](exam-task/app/main.py) — entry point wiring the analyzer to the GUI.
-- [`model/`](exam-task/model) — training notebooks ([`ELSTM.ipynb`](exam-task/model/ELSTM.ipynb), [`ELSTM_EXTRA.ipynb`](exam-task/model/ELSTM_EXTRA.ipynb), [`12-lab.ipynb`](exam-task/model/12-lab.ipynb)) and the exported SavedModel ([`model1/`](exam-task/model/model1)).
+- [`model/`](exam-task/model) — training notebooks ([`ELSTM.ipynb`](exam-task/model/ELSTM.ipynb), [`ELSTM_EXTRA.ipynb`](exam-task/model/ELSTM_EXTRA.ipynb), [`12-lab.ipynb`](exam-task/model/12-lab.ipynb)) and the exported SavedModel ([`model1/`](exam-task/model/model1)) with the tokenizer vocabulary it was trained with ([`word_index.json`](exam-task/model/word_index.json)).
+
+## Showcase
+
+**[Open the labs in the browser](https://andrew1407.github.io/AI_basics/)**. Every lab has its own tab with the lab's parameters, interactive charts, its source code, and buttons to copy each chart (PNG or CSV), table and set of results. Python runs in [Pyodide](https://pyodide.org) in a Web Worker, so the page never freezes; [`web/showcase.py`](web/showcase.py) runs each lab script statement by statement with the page's inputs.
+
+- **Run as written:** labs 1–3 (scikit-fuzzy from PyPI; labs 1 and 2 show their matplotlib figures), 5 (Hebb letters, plus a grid to draw your own), 7 (`evol`) and 8 (with a replay of every generation's best placement). Lab 4's Elman networks run with neurolab, built into a pure-Python wheel by [`web/build_wheels.sh`](web/build_wheels.sh).
+- **Ported to NumPy**, because Theano, Lasagne and TensorFlow don't run in the browser ([`web/ports/`](web/ports)): lab 4's feed-forward and cascade-forward networks, and lab 6's ANFIS (`6-lab.py` itself runs with the port as its `anfis` module).
+- **Trained once, inferred in NumPy:** lab 9 (draw a digit) and lab 12 were trained by their own scripts ([`web/models/export_models.py`](web/models/export_models.py)); the exam app uses the variables of its SavedModel, with its ELSTM cell ported and checked against TensorFlow.
+- **Architecture only:** labs 10 and 11 (AlexNet, GoogLeNet) need a GPU for hours to train, so the page runs their model code against shape-inferring layers and lists every layer's output shape and parameters.
+
+Run it locally:
+
+```sh
+sh web/build_wheels.sh   # builds web/wheels/ (needs pip)
+```
+
+then assemble `_site/` as the [pages workflow](.github/workflows/pages.yml) does and serve it with `python -m http.server` from `_site/`. The workflow deploys it on every push to `main`.
 
 ## Tech stack
 
@@ -88,5 +113,6 @@ AI_basics/
 ├── 10-lab/       # AlexNet on CIFAR-10 (.py + .ipynb)
 ├── 11-lab/       # GoogLeNet on CIFAR-10 (.py + .ipynb)
 ├── 12-lab/       # Bidirectional LSTM sentiment (.py + .ipynb)
-└── exam-task/    # ELSTM sentiment analyzer + Tkinter GUI + saved model
+├── exam-task/    # ELSTM sentiment analyzer + Tkinter GUI + saved model
+└── web/          # GitHub Pages showcase (Pyodide worker, NumPy ports, exported weights)
 ```
