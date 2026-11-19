@@ -34,5 +34,6 @@ print(f'{loss=} {accuracy=}')
 for img_path in LETTERS_PATHS:
   img = cv.imread(osp.join(LETTERS_DIR, img_path))[:,:,0]
   img_arr = np.invert(np.array([img]))
+  img_arr = kr.utils.normalize(img_arr, axis=1)
   prediction = recognizer.predict(img_arr)
   print(f'{img_path=}; max. prediction: {np.argmax(prediction)}')

@@ -47,7 +47,7 @@ evolved_1 = population_1.evolve(
 )
 
 # output
-minimized_x = max(evolved_1, key=lambda x: x.fitness).chromosome
+minimized_x = min(evolved_1, key=lambda x: x.fitness).chromosome
 print(f'Min value for fn1: x = {minimized_x} where y = {FN_1(minimized_x)}')
 
 
